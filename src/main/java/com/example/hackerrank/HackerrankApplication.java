@@ -1,18 +1,16 @@
 package com.example.hackerrank;
 
-import org.apache.logging.log4j.util.Strings;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
-import static com.example.hackerrank.SortingExample.*;
-import static com.example.hackerrank.Testme.*;
+import static com.example.hackerrank.NewAttend.run;
 import static java.util.Arrays.sort;
-import static java.util.stream.Collectors.*;
+import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toSet;
 
 @SpringBootApplication
 public class HackerrankApplication {
@@ -30,6 +28,7 @@ public class HackerrankApplication {
             list = list.stream().filter(x->x.contains(String.valueOf(digit))).collect(toList());
         }
         Collections.sort(list);
+        System.out.println("    private static void findDigitsInString2");
         list.forEach(System.out::println);
     }
 
@@ -74,9 +73,9 @@ public class HackerrankApplication {
         while (start < toCalculate.length()) {
             end = start;
             int count=0;
-            String tmpString = "";
+//            String tmpString = "";
             while (end < toCalculate.length()&&toCalculate.charAt(start)==toCalculate.charAt(end)) {
-                tmpString = tmpString + toCalculate.charAt(end);
+//                tmpString = tmpString + toCalculate.charAt(end);
                 count++;
                 end++;
             }
@@ -92,35 +91,37 @@ public class HackerrankApplication {
     }
     public static void main(String[] args) {
 
-        int[] arrToSort = {3,4,2,1};
-//        mergeSort(arrToSort,0,arrToSort.length-1);
-        sortMergeSecond(arrToSort);
-        System.out.println(" arrays sorted: " + Arrays.toString(arrToSort));
-//        System.out.println(" binary search: " + binarySearch(arrToSort,2));
-        System.out.println(" binary search: " + binarySearchSecond(arrToSort,2));
-
-        String[] arrayOfStrings = new String[]{"123", "415273", "890", "39201"};
-        int[] digitsToFind = new int[]{1, 2, 3};
-        findDigitsInString(arrayOfStrings, digitsToFind);
-        findDigitsInString2(arrayOfStrings,digitsToFind);
-        findSeqInString(arrayOfStrings,digitsToFind);
-
-
-        String repeat = "Geegeeesss";
-        System.out.println("Max repeating: " + maxRepeating(repeat));
-        System.out.println("Max repeat char in " + repeat + " will be " + maxRepeat(repeat));
-
-        int[] numbersToCount = {1, 1, 1, 1, 3, 3, 3, 8, 8, 8, 8, 8, 8, 8, 2, 2};
-        printOutCountOfNumbers(numbersToCount);
-
-        String charsToRemove = "abbccddcdddccddg"; //result should be abbccg
-        System.out.println("After replecing chars " + removeCharsThatAreAfterEachOther(charsToRemove, 3));
-
-        System.out.println("Reverse of " + Arrays.toString(numbersToCount) + " will be " + Arrays.toString(printReverseOrder(numbersToCount)));
+        run();
+//        int[] arrToSort = {3,4,2,1};
+////        mergeSort(arrToSort,0,arrToSort.length-1);
+//        sortMergeSecond(arrToSort);
+//        System.out.println(" arrays sorted: " + Arrays.toString(arrToSort));
+////        System.out.println(" binary search: " + binarySearch(arrToSort,2));
+//        System.out.println(" binary search: " + binarySearchSecond(arrToSort,2));
 //
-//        String seq = "MMMN";
+//        String[] arrayOfStrings = new String[]{"123", "415273", "890", "39201"};
+//        int[] digitsToFind = new int[]{1, 2, 3};
+//        findDigitsInString(arrayOfStrings, digitsToFind);
+//        findDigitsInString2(arrayOfStrings,digitsToFind);
+//        findSeqInString(arrayOfStrings,digitsToFind);
 //
-//        printLowestNumberFromSeq(seq);
+//
+//        String repeat = "Geegeeesss";
+//        System.out.println("Max repeating: " + maxRepeating(repeat));
+//        System.out.println("Max repeat char in " + repeat + " will be " + maxRepeat(repeat));
+//
+//        int[] numbersToCount = {1, 1, 1, 1, 3, 3, 3, 8, 8, 8, 8, 8, 8, 8, 2, 2};
+//        printOutCountOfNumbers(numbersToCount);
+//
+//        String charsToRemove = "abbccddcdddccddg"; //result should be abbccg
+//        int n=4;
+//        System.out.println("Before " + charsToRemove + " n=" + n + " After replecing chars " + removeCharsThatAreAfterEachOther(charsToRemove, n));
+//
+//        System.out.println("Reverse of " + Arrays.toString(numbersToCount) + " will be " + Arrays.toString(printReverseOrder(numbersToCount)));
+//
+        String seq = "MMMN";
+      System.out.println("Print lowest number from sequence "  + seq);
+        printLowestNumberFromSeq(seq);
 //
 //        String repChar = "ccccccchaaarrrr";
 //        findMaxRepChar(repChar);
@@ -170,13 +171,13 @@ public class HackerrankApplication {
 //        String[][] usersMarks = new String[][]{user1, user2, user3};
 //        System.out.println("Student with the biggest ave :" + bestAverage(usersMarks));
 //
-        String[] repeatArray = {"mom", "dad", "cat", "cat", "cat", "mom","tree","tree"};
-        System.out.println("nb of repeat k times element: "+ sumOfElementsRepeating(repeatArray,2));
-        System.out.println("nb of repeat k times element2 : "+ sumOfElementsRepeating2(repeatArray,2));
-
-        int[][] inputMatrix = {{0,0,0},{0,1,0},{0,0,0}};
-        //[[0,0,0],[1,1,0],[1,1,0]]
-        System.out.println(shortestPathBinaryMatrix(inputMatrix));
+//        String[] repeatArray = {"mom", "dad", "cat", "cat", "cat", "mom","tree","tree"};
+//        System.out.println("nb of repeat k times element: "+ sumOfElementsRepeating(repeatArray,2));
+//        System.out.println("nb of repeat k times element2 : "+ sumOfElementsRepeating2(repeatArray,2));
+//
+//        int[][] inputMatrix = {{0,0,0},{0,1,0},{0,0,0}};
+//        //[[0,0,0],[1,1,0],[1,1,0]]
+//        System.out.println(shortestPathBinaryMatrix(inputMatrix));
 
 //        String firsApear = "aabgbbcccdfffn";
 //        System.out.println("first non repeat char " + firstApearSingleChar(firsApear));
@@ -184,19 +185,19 @@ public class HackerrankApplication {
 //
 //        System.out.println("Random generated string : " + randomGenerateString(10));
 
-        String[] listOfString = {"142563"};
-
-        int[] s = IntStream.concat(Arrays.stream(inputMatrix[0]), Arrays.stream(inputMatrix[1])).sorted().toArray();
-        List<Integer> z  = Arrays.stream(inputMatrix[1]).boxed().collect(toList());
-        int[] zFromList = z.stream().mapToInt(x->x).toArray();
-
-        List<String> inputStrings = new ArrayList<>();
-        inputStrings.add("sdgh");
-        inputStrings.add("gghhhs");
-        inputStrings.add("abc");
-        inputStrings.add("ssggcc");
-        String template = "hsg";
-        System.out.println("Proper string :" + getProperString(inputStrings,template));
+//        String[] listOfString = {"142563"};
+//
+//        int[] s = IntStream.concat(Arrays.stream(inputMatrix[0]), Arrays.stream(inputMatrix[1])).sorted().toArray();
+//        List<Integer> z  = Arrays.stream(inputMatrix[1]).boxed().collect(toList());
+//        int[] zFromList = z.stream().mapToInt(x->x).toArray();
+//
+//        List<String> inputStrings = new ArrayList<>();
+//        inputStrings.add("sdgh");
+//        inputStrings.add("gghhhs");
+//        inputStrings.add("abc");
+//        inputStrings.add("ssggcc");
+//        String template = "hsg";
+//        System.out.println("Proper string :" + getProperString(inputStrings,template));
     }
 
     public static Set<String> getProperString(List<String> strings, String template) {
