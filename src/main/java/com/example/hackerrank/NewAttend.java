@@ -55,9 +55,54 @@ public class NewAttend {
         int[] numArr = {1, 54, 4432, 23};
         System.out.println("Form biggest number " + Arrays.toString(numArr) + " will be " + formLargestNumber(numArr));
 
+        List<Cards> cards = new ArrayList<>();
+        Cards visa = new Cards("Visa", new int[]{12, 2, 3});
+        Cards masterCard = new Cards("MasterCard", new int[]{1, 4, 55});
+        cards.add(visa);
+        cards.add(masterCard);
+        String cardNumber = "12455685548";
+        System.out.println("Given cards " + cards.toString() + " and card number " + cardNumber);
+        System.out.println("The card number belongs to " + getCardTypeByPrefix(cards, cardNumber));
     }
 
+    private static String getCardTypeByPrefix(List<Cards> cards, String cardNumber) {
+        String result = "";
+        int currPrefixLength = 0;
+        for (Cards card : cards) {
+            for (int prefix : card.getPrefix()) {
+                int prefixLength = String.valueOf(prefix).length();
+                if(cardNumber.startsWith(String.valueOf(prefix))&&prefixLength>currPrefixLength){
+                    result = card.getName();
+                    currPrefixLength = prefixLength;
+                }
+            }
+        }
+        return result;
+    }
 
+private static class Cards{
+        private String name;
+        private int[] prefix;
+
+    public Cards(String name, int[] prefix) {
+        this.name=name;
+        this.prefix = prefix;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int[] getPrefix() {
+        return this.prefix;
+    }
+
+    @Override
+    public String toString() {
+        return "Card name " + this.name +
+                " Card prefix " + Arrays.toString(this.prefix);
+    }
+}
 
     private static String formLargestNumber(int[] arr) {
         List<String> list = Arrays.stream(arr).boxed().map(Object::toString).sorted((o1, o2) -> {
